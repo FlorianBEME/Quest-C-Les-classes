@@ -9,10 +9,10 @@ namespace ConsoleApp1
             Character Character1 = new Character("Perso 1", 100,50,20);
             Character Character2 = new Character("Perso 2", 100, 50, 20);
 
-            while (Character1.lifePoint == 0 || Character2.lifePoint == 0)
+            while (Character1.lifePoint > 0 || Character2.lifePoint > 0)
             {
 
-                Character1.Attack(Character2.attack);
+                Character1.Attack(Character1, Character2);
                 if (Character1.IsAlive())
                 {
                     Console.WriteLine(Character1.name + "est en vie");
@@ -23,7 +23,7 @@ namespace ConsoleApp1
                 }
 
 
-                Character2.Attack(Character1.attack);
+                Character2.Attack(Character2, Character1);
                 if (Character2.IsAlive())
                 {
                     Console.WriteLine(Character2.name + "est en vie");

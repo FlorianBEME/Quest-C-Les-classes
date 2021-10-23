@@ -22,10 +22,16 @@ namespace ConsoleApp1
             defense = aDefense;
         }
 
-        public void Attack(int enemyForce)
+        public int Attack(Character a, Character b)
         {
-            lifePoint = lifePoint - (enemyForce - defense);
-            Console.WriteLine(lifePoint);
+            if (a.lifePoint <= 0)
+            {
+                return a.lifePoint = 0;
+            }
+            else
+            {
+                return a.lifePoint = a.lifePoint - (a.attack - a.defense);
+            }
         }
 
         public bool IsAlive()
