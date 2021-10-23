@@ -6,32 +6,43 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Character Character1 = new Character("Perso 1", 100,50,20);
-            Character Character2 = new Character("Perso 2", 100, 50, 20);
+            Character Hero = new Character("Hero", 100,50,30);
+            Character Méchant = new Character("Méchant", 100, 50, 20);
 
-            while (Character1.lifePoint > 0 || Character2.lifePoint > 0)
+            while (Méchant.lifePoint > 0 && Hero.lifePoint > 0 )
             {
-
-                Character1.Attack(Character1, Character2);
-                if (Character1.IsAlive())
+              
+                if (Hero.IsAlive() && Méchant.IsAlive())
                 {
-                    Console.WriteLine(Character1.name + "est en vie");
-                }
-                else
-                {
-                    Console.WriteLine(Character1.name + "est mort");
+                    Hero.Attack(Hero, Méchant);
+                    Console.WriteLine("hero Attack");
+                   
                 }
 
 
-                Character2.Attack(Character2, Character1);
-                if (Character2.IsAlive())
+                if(Méchant.IsAlive() == false)
                 {
-                    Console.WriteLine(Character2.name + "est en vie");
+                    Console.WriteLine("Méchant mort");
                 }
-                else
+
+
+
+                if (Méchant.IsAlive() && Hero.IsAlive())
                 {
-                    Console.WriteLine(Character1.name + "est mort");
+                    Méchant.Attack(Méchant, Hero);
+                    
                 }
+
+
+                if (Hero.IsAlive() && Méchant.IsAlive() == false)
+                {
+                    Console.WriteLine("hero Winners");
+                }
+                if (Méchant.IsAlive() && Hero.IsAlive() == false)
+                {
+                    Console.WriteLine("Méchant Winners");
+                }
+
 
 
             }

@@ -22,16 +22,10 @@ namespace ConsoleApp1
             defense = aDefense;
         }
 
-        public int Attack(Character a, Character b)
+        public int Attack(Character Attaquant, Character Attaqué)
         {
-            if (a.lifePoint <= 0)
-            {
-                return a.lifePoint = 0;
-            }
-            else
-            {
-                return a.lifePoint = a.lifePoint - (a.attack - a.defense);
-            }
+            return Attaqué.lifePoint = (Attaqué.lifePoint) - (Attaquant.attack - Attaqué.defense) ;
+           
         }
 
         public bool IsAlive()
